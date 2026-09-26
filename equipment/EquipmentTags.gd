@@ -23,7 +23,7 @@ onready var ErrorTimer = find_node("ErrorTimer")
 var data_id:String = ""
 var data:Dictionary = {}
 
-var tag_regex = "^[a-z_\\-0-9]+$"
+var tag_regex = "^[a-z_\\-0-9:]+$"
 var tag_regex_obj = RegEx.new()
 
 func _ready():
@@ -92,7 +92,6 @@ func add_tag(new_tag, update_database):
 		ErrorTimer.start()
 		ErrorLabel.visible = true
 		ErrorLabel.text = invalid_data_text
-		return ERR_INVALID_DATA
 
 	var tag_container = TagContainerScene.instance()
 	tag_container.connect("delete_requested", self, "remove_tag", [new_tag, true])
