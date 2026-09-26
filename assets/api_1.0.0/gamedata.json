@@ -81,7 +81,8 @@
 			"RANGE25": "Requires a number between 2 and 5 (including both)",
 			"RANGE34": "Requires a number between 3 and 4 (including both)",
 			"RANGE35": "Requires a number between 3 and 5 (including both)",
-			"RANGE45": "Requires a number between 4 and 5 (including both)"
+			"RANGE45": "Requires a number between 4 and 5 (including both)",
+			"COMBINATION": "Requires a combination of dice (define in tags with combination:XXX)"
 		},
 		"upgrade_modifier": {
 			"No modifier": "No modifier",
