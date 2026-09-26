@@ -803,7 +803,7 @@ class CSVData:
 			result = comments_regex.sub(result, "/* $comment */", true)
 		result = result.replace("\n", " ")
 		result = result.replace("\t", "") # remove tabs because it breaks the game
-		result = result.replace(",", "[;]")
+		result = result.replace(",", "|") # replace commas with | instead of [;] in scripts, prettier
 		result = result.replace('"', "~")
 		result = result.replace("||", '#')
 		result = result.strip_edges()
