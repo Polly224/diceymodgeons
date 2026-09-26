@@ -397,7 +397,7 @@ class CSVData:
 	var overwrite_mode:bool = false
 	var last_overwrite_mode_saved:bool = false
 
-	var comments_regex_pattern = "// *(?'comment'.+\\S)"
+	var comments_regex_pattern = "// *(?'comment'([^\\*\\n]|\\*[^/\\n])+)(?!([^/]|/[^\\*])*\\*/)"
 	var comments_regex = RegEx.new()
 
 	func _init(paths:Dictionary, key:String):
