@@ -64,10 +64,6 @@ func set_description(desc:String):
 		if Gamedata.symbols.has(s):
 			var path = Gamedata.symbols.get(s).get("path", "")
 			result += "[img=%s]%s[/img]" % [ICON_SIZE, path]
-		elif s.empty():
-			result += "[img=%s]%s[/img]" % [ICON_SIZE, d6path]
-		elif s == "gray":
-			pass
 	result += desc.substr(last, desc.length() - last)
 
 	result = result.replace("<d6>", "[img=%s]%s[/img]" % [ICON_SIZE, d6path])
