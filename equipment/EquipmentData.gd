@@ -197,6 +197,7 @@ func _on_SlotsContainer_slots_changed(slots, node, key):
 	if not data_id: return
 	Database.commit(Database.Table.EQUIPMENT, Database.UPDATE, data_id, key, slots)
 	_update_SlotsTexture_visibility(slots.size())
+	EquipmentCard._update_description_position()
 
 func _on_SlotsContainer_total_changed(new_total, node, key):
 	if not data_id: return
