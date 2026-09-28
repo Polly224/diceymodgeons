@@ -883,11 +883,11 @@ class CSVData:
 				while bracket_end != - 1:
 					if json[bracket_end - 1] == i[0]:
 						bracket_count += 1
-					elif json[bracket_end + 1] == i[1]:
+					elif bracket_end + 1 < len(json) and json[bracket_end + 1] == i[1]:
 						bracket_count -= 1
 
 					# Move through the indentation to see if there is a match.
-					while json[bracket_end + 1] == indentation:
+					while bracket_end + 1 < len(json) and json[bracket_end + 1] == indentation:
 						bracket_end += 1
 
 						if json[bracket_end + 1] == i[1]:
