@@ -9,7 +9,7 @@
 	},
 	"Health": {
 		"type": "number",
-		"default": 1,
+		"default": 1
 	},
 	"Voice": {
 		"type": "string",
@@ -140,6 +140,14 @@
 		"default": ""
 	},
 	"Last Words Endgame": {
+		"type": "text",
+		"default": ""
+	},
+	"Author": {
+		"type": "text",
+		"default": ""
+	},
+	"Comment": {
 		"type": "text",
 		"default": ""
 	}

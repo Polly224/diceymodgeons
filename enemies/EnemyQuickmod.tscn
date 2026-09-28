@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://enemies/EnemyChat.gd" type="Script" id=1]
+
+[node name="EnemyWords" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 1274.0
+margin_bottom = 716.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1268.0
+margin_bottom = 712.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+
+[node name="WordsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_right = 1268.0
+margin_bottom = 176.0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/WordsContainer"]
+margin_right = 1268.0
+margin_bottom = 22.0
+text = "Author"
+
+[node name="AuthorEdit" type="TextEdit" parent="ScrollContainer/VBoxContainer/WordsContainer"]
+margin_top = 26.0
+margin_right = 1268.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 150 )
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WordsContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 192.0
+margin_right = 1268.0
+margin_bottom = 368.0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/WordsContainer2"]
+margin_right = 1268.0
+margin_bottom = 22.0
+text = "Comment"
+
+[node name="CommentEdit" type="TextEdit" parent="ScrollContainer/VBoxContainer/WordsContainer2"]
+margin_top = 26.0
+margin_right = 1268.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 150 )
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VoiceFileDialog" type="FileDialog" parent="."]
+margin_right = 325.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 1000, 600 )
+popup_exclusive = true
+window_title = "Open a Directory"
+mode = 2
+access = 2
+current_dir = "C:/Users/loost/Downloads/Programs/Tools/Modgeons Source"
+current_path = "C:/Users/loost/Downloads/Programs/Tools/Modgeons Source/"
+[connection signal="dir_selected" from="VoiceFileDialog" to="." method="_on_VoiceFileDialog_dir_selected"]

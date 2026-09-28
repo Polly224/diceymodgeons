@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://enemies/EnemiesTab.gd" type="Script" id=1]
 [ext_resource path="res://enemies/EnemyGraphics.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://ItemList.tscn" type="PackedScene" id=5]
 [ext_resource path="res://AddPopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/EnemyChat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/EnemyQuickmod.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/EnemyQuickmod.gd" type="Script" id=9]
 
 [node name="Enemies" type="PanelContainer"]
 anchor_right = 1.0
@@ -64,6 +66,14 @@ margin_left = 5.0
 margin_top = 29.0
 margin_right = -5.0
 margin_bottom = -5.0
+
+[node name="Quickmod" parent="HBoxContainer/TabContainer" instance=ExtResource( 8 )]
+visible = false
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+script = ExtResource( 9 )
 
 [node name="AddNewEnemyPopup" parent="." instance=ExtResource( 6 )]
 anchor_right = 0.0

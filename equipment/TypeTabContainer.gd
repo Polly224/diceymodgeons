@@ -14,6 +14,7 @@ export (TabType) var copy_from = TabType.NORMAL
 onready var TabContainer = find_node("TabContainer")
 onready var Data = find_node("Data")
 onready var Scripts = find_node("Scripts")
+onready var Quickmod = find_node("Quickmod")
 onready var CreateContainer = find_node("CreateContainer")
 onready var CreateButton = find_node("CreateButton")
 onready var CopyButton = find_node("CopyButton")
@@ -48,6 +49,7 @@ func set_key(key:String):
 
 	Data.set_data(data)
 	Scripts.set_data(data)
+	Quickmod.set_data(data)
 
 func _toggle_create_container(show:bool):
 	if show:
