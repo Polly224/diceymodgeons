@@ -115,7 +115,7 @@ func _update_description_position():
 	else:
 		Description.add_constant_override("line_separation", -17)
 	if not SlotsTexture.visible:
-		Description.rect_position.y = (Description.get_line_count() - 1) * -25
+		Description.rect_position.y = (Description.get_line_count() - 1) * -22
 		Description.rect_position.y -= 100 * (1.8 if card_size == 1 else 3)
 
 func _on_VBoxContainer_sort_children():

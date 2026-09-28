@@ -91,6 +91,7 @@ func set_data(data):
 	Utils.fill_options(GadgetOption, values, false)
 
 	_setup(GadgetOption, "Gadget", "")
+	EquipmentCard._update_description_position()
 
 func _setup(node, key, def):
 	if node is SpinBox:
