@@ -375,6 +375,7 @@ func _delete(data, key, field, value):
 
 class CSVData:
 	var headers:Array = []
+	var baseheaders:Array = []
 
 	var append:Array = []
 	var merge:Array = []
@@ -432,9 +433,9 @@ class CSVData:
 			if origin == Origin.GAME:
 				Database._load_errors.push_back("\t- File: %s is in use, locked or can't be read" % path)
 			return
-
 		if file.open(path, File.READ) == OK:
 			headers = Array(file.get_csv_line())
+			baseheaders = headers.duplicate()
 			var content = []
 			while not file.eof_reached():
 				content.push_back(Array(file.get_csv_line()))
@@ -499,10 +500,14 @@ class CSVData:
 		last_overwrite_mode_saved = overwrite_mode
 
 	func _save(path, origins, all_data:bool = false):
+		headers = baseheaders.duplicate()
+		if "_append/data/text/equipment.csv" in path:
+			headers = ["Name", "Description", "Author", "Comment", "Size", "Script: On Execute", "Gadget", "Slots", "NEED TOTAL?", "Colour", "Upgrade", "Weaken", "Alternate Status Trigger", "SFX", "Uses?", "Cast Backwards?", "Single use?", "Tags", "Witch Spell", "Script: Before Combat", "Script: After Combat", "Script: Before Start Turn", "Script: On Start Turn", "Script: On any equipment use", "Script: On any countdown reduce", "Script: End Turn", "Script: Before execute", "Script: On Snap", "Script: On Fury", "Script: On Dodge"]
+		elif "_merge/data/text/equipment.csv" in path:
+			headers = ["Name", "Description", "Size", "Script: On Execute", "Gadget", "Slots", "NEED TOTAL?", "Colour", "Upgrade", "Weaken", "Alternate Status Trigger", "SFX", "Uses?", "Cast Backwards?", "Single use?", "Tags", "Witch Spell", "Script: Before Combat", "Script: After Combat", "Script: Before Start Turn", "Script: On Start Turn", "Script: On any equipment use", "Script: On any countdown reduce", "Script: End Turn", "Script: Before execute", "Script: On Snap", "Script: On Fury", "Script: On Dodge", "Author", "Comment"]
 		var content = []
 		for origin in origins:
 			content += _data_to_content(origin, all_data)
-
 		if not content or content.empty():
 			var file = Directory.new()
 			if file.file_exists(path):
