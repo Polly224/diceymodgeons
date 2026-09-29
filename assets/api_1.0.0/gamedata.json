@@ -156,9 +156,7 @@
 			"destroy": "Destroyed on use"
 		},
 		"hide_slots_for_tags": [
-			"skillcard",
-			"monstercard",
-			"powercard"
+			"monstercard"
 		]
 	}
 }
