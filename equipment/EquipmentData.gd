@@ -143,8 +143,9 @@ func _update_SlotsContainer_visibility(tags):
 
 	if hide_it:
 		SlotsContainer.visible = false
-		Database.commit(Database.Table.EQUIPMENT, Database.UPDATE, data_id, "Slots", [])
-		Database.commit(Database.Table.EQUIPMENT, Database.UPDATE, data_id, "NEED TOTAL?", 0)
+		if len(SlotsContainer.current_slots) > 0 or SlotsContainer.ExtraSpin.value != 0:
+			Database.commit(Database.Table.EQUIPMENT, Database.UPDATE, data_id, "Slots", [])
+			Database.commit(Database.Table.EQUIPMENT, Database.UPDATE, data_id, "NEED TOTAL?", 0)
 		SlotsContainer.set_data(data)
 	else:
 		SlotsContainer.visible = true
