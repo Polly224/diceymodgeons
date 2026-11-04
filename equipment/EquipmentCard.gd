@@ -67,9 +67,10 @@ func set_description(desc:String):
 			var path = Gamedata.symbols.get(s).get("path", "")
 			result += "[img=%s]%s[/img]" % [ICON_SIZE, path]
 	result += desc.substr(last, desc.length() - last)
+	for d6type in ["<d6>", "<slotdoubles>", "<d6_withoutbonus>", "<evendice_d6>", "<odddice_d6>", "<eventurn_d6>", "<oddturn_d6>", "<flipd6>", "<myshield>"]:
+		result = result.replace(d6type, "[img=%s]%s[/img]" % [ICON_SIZE, d6path])
 
-	result = result.replace("<d6>", "[img=%s]%s[/img]" % [ICON_SIZE, d6path])
-	result = result.replace("<slotdoubles>", "[img=%s]%s[/img]" % [ICON_SIZE, d6path])
+	result = result.replace("<half>", "[img=%s]%s[/img]/2" % [ICON_SIZE, d6path])
 	result = result.replace("<double>", "2x[img=%s]%s[/img]" % [ICON_SIZE, d6path])
 	result = result.replace("<triple>", "3x[img=%s]%s[/img]" % [ICON_SIZE, d6path])
 	result = result.replace("<quadruple>", "4x[img=%s]%s[/img]" % [ICON_SIZE, d6path])
